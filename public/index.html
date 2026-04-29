@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIERE Restaurant</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar hidden" id="topbar">
+    <div class="brand">LUMIERE</div>
+    <div class="topbar-actions">
+      <select id="lang-select" class="btn btn-secondary">
+        <option value="en">EN</option>
+        <option value="tr">TR</option>
+      </select>
+      <button id="menu-btn" class="btn btn-secondary">Menu</button>
+      <button id="cart-btn" class="btn btn-secondary">Bucket</button>
+      <button id="profile-btn" class="btn btn-secondary">Profile</button>
+      <button id="theme-toggle" class="btn btn-secondary">Theme</button>
+      <button id="logout-btn" class="btn btn-danger">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="auth-page" class="page active">
+      <div class="auth-card">
+        <div style="display:flex; justify-content:flex-end; margin-bottom:8px;">
+          <select id="lang-select-auth" class="btn btn-secondary">
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+          </select>
+        </div>
+        <h1>LUMIERE</h1>
+        <p class="muted" id="tagline">Fine Dining Experience</p>
+
+        <div id="login-view">
+          <h2 id="login-title">Login</h2>
+          <p class="hint" id="login-hint">Test login: <code>test@lumiere.com</code> / <code>test123</code></p>
+          <div class="field"><label id="login-email-label">Email</label><input id="login-email" type="email" /></div>
+          <div class="field"><label id="login-password-label">Password</label><input id="login-password" type="password" /></div>
+          <p id="login-error" class="error"></p>
+          <div class="actions">
+            <button id="test-login-fill" class="btn btn-secondary">Use Test Login</button>
+            <button id="login-btn" class="btn">Login</button>
+          </div>
+          <p class="muted"><span id="no-account-text">No account?</span> <button class="link" id="go-signup">Go to Sign Up</button></p>
+        </div>
+
+        <div id="signup-view" class="hidden">
+          <h2 id="signup-title">Sign Up</h2>
+          <p class="hint" id="signup-hint">Use "Create Test Register" for quick access.</p>
+          <div class="field"><label id="signup-name-label">Full Name</label><input id="signup-name" type="text" /></div>
+          <div class="field"><label id="signup-email-label">Email</label><input id="signup-email" type="email" /></div>
+          <div class="field"><label id="signup-password-label">Password</label><input id="signup-password" type="password" /></div>
+          <div class="field"><label id="signup-confirm-label">Confirm Password</label><input id="signup-confirm" type="password" /></div>
+          <p id="signup-error" class="error"></p>
+          <p id="signup-success" class="success"></p>
+          <div class="actions">
+            <button id="test-register-fill" class="btn btn-secondary">Create Test Register</button>
+            <button id="signup-btn" class="btn">Sign Up</button>
+          </div>
+          <p class="muted"><span id="already-registered-text">Already registered?</span> <button class="link" id="go-login">Back to Login</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu-page" class="page">
+      <div class="menu-controls">
+        <input id="search-input" class="search" placeholder="Search menu items..." />
+        <div id="categories" class="categories"></div>
+      </div>
+      <div id="menu-grid" class="grid"></div>
+    </section>
+
+    <section id="cart-page" class="page">
+      <div class="panel">
+        <h2 id="bucket-title">Your Bucket</h2>
+        <div id="cart-list"></div>
+        <div class="summary">
+          <div><span id="subtotal-label">Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+          <div><span id="service-label">Service (10%)</span><strong id="cart-service">$0.00</strong></div>
+          <div class="grand"><span id="total-label">Total</span><strong id="cart-total">$0.00</strong></div>
+        </div>
+        <button id="order-btn" class="btn" disabled>Order</button>
+      </div>
+    </section>
+
+    <section id="profile-page" class="page">
+      <div class="panel">
+        <h2 id="profile-name">Profile</h2>
+        <p id="profile-email" class="muted"></p>
+        <h3 id="order-history-title">Order History</h3>
+        <div id="order-history"></div>
+      </div>
+    </section>
+
+    <section id="receipt-page" class="page">
+      <div class="panel">
+        <h2 id="receipt-title">Order Receipt</h2>
+        <p id="receipt-ref"></p>
+        <p id="receipt-time" class="muted"></p>
+        <div id="receipt-items"></div>
+        <div class="summary">
+          <div><span id="receipt-subtotal-label">Subtotal</span><strong id="receipt-subtotal"></strong></div>
+          <div><span id="receipt-service-label">Service</span><strong id="receipt-service"></strong></div>
+          <div class="grand"><span id="receipt-total-label">Total</span><strong id="receipt-total"></strong></div>
+        </div>
+        <div class="actions">
+          <button id="download-pdf-btn" class="btn">Download PDF</button>
+          <button id="back-menu-btn" class="btn btn-secondary">Back to Menu</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./i18n.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
